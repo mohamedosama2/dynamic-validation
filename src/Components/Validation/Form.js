@@ -56,6 +56,12 @@ function AddTrainer(props) {
       } else {
         shape[[name]] = yup.string().required().email();
       }
+    } else {
+      if (values[1] === "notRequired") {
+        shape[[name]] = yup.string().notRequired();
+      } else {
+        shape[[name]] = yup.string().required();
+      }
     }
   });
 
@@ -85,6 +91,7 @@ function AddTrainer(props) {
               style={{
                 border: errors[input.name] ? "1px solid rgb(172, 50, 50)" : "",
               }}
+              {...input.additions}
             />
             {errors[input.name]?.message ? (
               <p className="message">{errors[input.name]?.message}</p>
