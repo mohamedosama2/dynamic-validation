@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Form from './Components/Validation/Form'
 
 function App() {
+  const inputs = [
+    { name: "username", type: "text", placeholder: "Full Name" },
+    { name: "phone", type: "phone", placeholder: "Phone Number" },
+    { name: "password", type: "password", placeholder: "Password" },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Form
+      submitHandler={(data) => console.log(data)}
+      inputs={inputs}
+      datePicker={true}
+    />
   );
 }
 
