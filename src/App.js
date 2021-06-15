@@ -1,7 +1,14 @@
+import { useState } from "react";
 import "./App.css";
 import Form from "./Components/Validation/Form";
 
 function App() {
+  const [reset, setReset] = useState(false);
+
+  const clearReset = () => {
+    setReset(false);
+  };
+
   const inputs = [
     { name: "username", type: "text", placeholder: "Full Name" },
     { name: "phone", type: "phone", placeholder: "Phone Number" },
@@ -20,8 +27,12 @@ function App() {
 
   return (
     <Form
-      submitHandler={(data) => console.log(data)}
+      submitHandler={(data) => {
+        setReset(true);
+      }}
+      clearReset={clearReset}
       inputs={inputs}
+      reset={reset}
       datePicker={true}
     />
   );
