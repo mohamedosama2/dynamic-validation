@@ -58,9 +58,9 @@ function AddTrainer(props) {
       }
     } else {
       if (values[1] === "notRequired") {
-        shape[[name]] = yup.string().notRequired();
+        shape[[name]] = yup.string().notRequired().nullable();
       } else {
-        shape[[name]] = yup.string().required();
+        shape[[name]] = yup.string().required().nullable();
       }
     }
   });
